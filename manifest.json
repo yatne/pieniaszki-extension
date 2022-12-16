@@ -1,0 +1,10 @@
+{
+  "name": "Pinionszki Extension",
+  "description": "Scrapp mBank to CSV",
+  "version": "0.0.1",
+  "manifest_version": 3,
+  "permissions": ["storage", "activeTab", "scripting"],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}

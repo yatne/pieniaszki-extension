@@ -1,3 +1,32 @@
+async function scrapMData() {
+  let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+  return chrome.scripting.executeScript({
+    target: { tabId: tab.id },
+    func: () => {
+      const rows = Array.from(document.getElementsByClassName('ds__sc-g10vlq-0 dEwyXg')).map(
+        function(extRow) {return extRow.children[0];}
+      );
+      const values = [];
+      rows.forEach(row => {
+        if (!row.children[5].children[0].classList.contains('gBNa-dk')) {
+          const value = row.children[5].children[0].children[0].innerText;
+          const mDesc = row.children[2].children[0].children[1].innerText;
+          if (value.includes('-')) {
+            values.push({
+              date: row.children[1].children[0].children[0].children[0].textContent,
+              value: value,
+              desc: mDesc,
+            });
+          }
+        }
+      });
+      return values;
+    },
+  }).then((res) => {
+    return res[0].result;
+  });
+}
+
 function transformMData(mData) {
   return loadRules().then((res) => {
     const {ruleSet} = res;

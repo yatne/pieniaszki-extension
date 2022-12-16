@@ -1,0 +1,49 @@
+body {
+    width: 700px;
+    font-family: 'Roboto', sans-serif;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, tr {
+    border: 1px solid;
+}
+
+td:nth-child(2){
+    border-right: 1px solid;
+}
+td:nth-child(4){
+    border-right: 1px solid;
+}
+td:nth-child(6){
+    border-right: 1px solid;
+}
+th {
+    border-bottom: 2px solid;
+}
+td {
+    padding: 8px;
+}
+.input-td {
+    padding: 8px 0;
+}
+
+select {
+    margin-left: 4px;
+}
+
+input {
+    max-width: 100px;
+    margin: 0;
+}
+
+.section {
+    margin: 16px 0;
+}
+
+button {
+    margin-right: 8px;
+}
