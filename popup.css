@@ -47,3 +47,34 @@ input {
 button {
     margin-right: 8px;
 }
+
+.rulesContainer {
+    width: auto;
+    border: 1px solid #8f8f8f;
+    padding: 0 12px;
+}
+
+.rulesHeader {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rulesToggleButton {
+    background-color: green;
+}
+
+.hidden {
+    display: none;
+}
+
+button {
+    height: 23px;
+    margin: 10px;
+}
+
+.removeRuleButton {
+    height: 15px;
+    margin: 0;
+}

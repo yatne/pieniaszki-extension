@@ -10,86 +10,95 @@
     <body>
         <button id="generateCSVButton"> Generate CSV </button>
 
-        <h5>Rules: </h5>
-        <table id="rulesTable">
-            <td>Name </td>
-            <td/>
-            <td>Value</td>
-            <td/>
-            <td>category </td>
-            <td>description</td>
-            <td></td>
-        </table>
-
-        <div class="section">
-            <h5>Add new rule:</h5>
-            <form id="newRuleForm">
-                <table>
-                    <tr>
-                        <td>Name </td>
-                        <td/>
-                        <td>Value</td>
-                        <td/>
-                        <td>category </td>
-                        <td>description</td>
-                    </tr>
-                    <tr>
-                        <td class="input-td">
-                            <select name="name-condition" id="name-condition">
-                                <option value=""></option>
-                                <option value="contains">contains</option>
-                                <option value="equals">equals</option>
-                            </select>
-                        <td class="input-td"><input id="name-value" /></td>
-                        <td class="input-td">
-                            <select name="value-condition" id="value-condition">
-                                <option value=""></option>
-                                <option value="less">less than</option>
-                                <option value="equals">equals</option>
-                                <option value="greater">greater than</option>
-                            </select>
-                        </td>
-                        <td class="input-td"><input id="value-value" /></td>
-                        <td class="input-td">
-                            <select name="category" id="category">
-                                <option value="null"></option>
-                                <option value="Rachunki">Rachunki</option>
-                                <option value="Zakupy duże">Zakupy duże</option>
-                                <option value="Zakupy małe">Zakupy małe</option>
-                                <option value="Jedzenie poza domem">Jedzenie poza domem</option>
-                                <option value="Wyjścia i spotkania">Wyjścia i spotkania</option>
-                                <option value="Samochód">Samochód</option>
-                                <option value="Prezenty">Prezenty</option>
-                                <option value="Zdrowie">Zdrowie</option>
-                                <option value="Wygląd">Wygląd</option>
-                                <option value="Przyjemności">Przyjemności</option>
-                                <option value="Dom">Dom</option>
-                                <option value="Studia">Studia</option>
-                                <option value="Wyjazdy">Wyjazdy</option>
-                                <option value="Inwestycje">Inwestycje</option>
-                                <option value="Potomstwo">Potomstwo</option>
-                                <option value="Mieszkanie">Mieszkanie</option>
-                                <option value="Dla Kasi">Dla Kasi</option>
-                                <option value="Nadpłaty">Nadpłaty</option>
-                                <option value="Elektronika">Elektronika</option>
-                                <option value="Kredyt">Kredyt</option>
-                                <option value="IGNORE">IGNORE</option>
-                            </select>
-                        <td class="input-td"><input id="description" /></td>
-                    </tr>
+        <div class="rulesContainer">
+            <div class="rulesHeader">
+                <h2>Rules: </h2>
+                <button id="rulesToggleButton">Open</button>
+            </div>
+            <div class="rulesContent hidden">
+                <table id="rulesTable">
+                    <td>Name </td>
+                    <td/>
+                    <td>Value</td>
+                    <td/>
+                    <td>category </td>
+                    <td>description</td>
+                    <td></td>
                 </table>
-                <button type="submit">Add</button>
-            </form>
+
+                <div class="section">
+                    <h3>Add new rule:</h3>
+                    <form id="newRuleForm">
+                        <table>
+                            <tr>
+                                <td>Name </td>
+                                <td/>
+                                <td>Value</td>
+                                <td/>
+                                <td>category </td>
+                                <td>description</td>
+                            </tr>
+                            <tr>
+                                <td class="input-td">
+                                    <select name="name-condition" id="name-condition">
+                                        <option value=""></option>
+                                        <option value="contains">contains</option>
+                                        <option value="equals">equals</option>
+                                    </select>
+                                <td class="input-td"><input id="name-value" /></td>
+                                <td class="input-td">
+                                    <select name="value-condition" id="value-condition">
+                                        <option value=""></option>
+                                        <option value="less">less than</option>
+                                        <option value="equals">equals</option>
+                                        <option value="greater">greater than</option>
+                                    </select>
+                                </td>
+                                <td class="input-td"><input id="value-value" /></td>
+                                <td class="input-td">
+                                    <select name="category" id="category">
+                                        <option value="null"></option>
+                                        <option value="Rachunki">Rachunki</option>
+                                        <option value="Zakupy duże">Zakupy duże</option>
+                                        <option value="Zakupy małe">Zakupy małe</option>
+                                        <option value="Jedzenie poza domem">Jedzenie poza domem</option>
+                                        <option value="Wyjścia i spotkania">Wyjścia i spotkania</option>
+                                        <option value="Samochód">Samochód</option>
+                                        <option value="Prezenty">Prezenty</option>
+                                        <option value="Zdrowie">Zdrowie</option>
+                                        <option value="Wygląd">Wygląd</option>
+                                        <option value="Przyjemności">Przyjemności</option>
+                                        <option value="Dom">Dom</option>
+                                        <option value="Studia">Studia</option>
+                                        <option value="Wyjazdy">Wyjazdy</option>
+                                        <option value="Inwestycje">Inwestycje</option>
+                                        <option value="Potomstwo">Potomstwo</option>
+                                        <option value="Mieszkanie">Mieszkanie</option>
+                                        <option value="Dla Kasi">Dla Kasi</option>
+                                        <option value="Nadpłaty">Nadpłaty</option>
+                                        <option value="Elektronika">Elektronika</option>
+                                        <option value="Kredyt">Kredyt</option>
+                                        <option value="IGNORE">IGNORE</option>
+                                    </select>
+                                <td class="input-td"><input id="description" /></td>
+                            </tr>
+                        </table>
+                        <button type="submit">Add</button>
+                    </form>
+                </div>
+
+                <div class="section">
+                    <button id="rulesExport">Export rules</button>
+                    <button id="rulesImport">Import rules</button>
+                    <input id='hiddenFileInput' type='file' hidden/>
+                </div>
+            </div>
         </div>
 
-        <div class="section">
-            <button id="rulesExport">Export rules</button>
-            <button id="rulesImport">Import rules</button>
-            <input id='hiddenFileInput' type='file' hidden/>
-        </div>
-
-        <script src="scrapper.js"></script>
-        <script src="dataStorage.js"></script>
+        <script src="js/dataStorage.js"></script>
+        <script src="js/scrapper.js"></script>
+        <script src="js/rules.js"></script>
+        <script src="js/options.js"></script>
         <script src="popup.js"></script>
     </body>
 </html>
