@@ -1,5 +1,7 @@
 async function scrapMData() {
   let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+  const className = await getProperClassname();
+
   return chrome.scripting.executeScript({
     target: { tabId: tab.id },
     func: () => {
@@ -22,6 +24,7 @@ async function scrapMData() {
       });
       return values;
     },
+    args: [className]
   }).then((res) => {
     return res[0].result;
   });

@@ -1,8 +1,9 @@
-document.getElementsByClassName("addCategory")[0].addEventListener("submit", async (e) => {
+const DEFAULT_SCRAPPER_CLASSNAME = 'ds__sc-g10vlq-0 dEwyXg';
+
+document.getElementById("addCategoryForm").addEventListener("submit", async (e) => {
   e.preventDefault();
 
   loadCategories().then((res) => {
-    console.log(res)
     const categories = res.categories ? res.categories : [];
     const maxId = Math.max(...categories.map(category => category?.id), 0);
     categories.push({
@@ -13,6 +14,28 @@ document.getElementsByClassName("addCategory")[0].addEventListener("submit", asy
     populateTableWithCategories();
   })
 })
+
+document.getElementById("addClassnameForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  saveScrapperLiClass(e.target['classnameInput'].value);
+  getProperClassname();
+})
+
+const getProperClassname = () => {
+  return loadScrapperLiClass().then((res) => {
+    let scrapperClassname = ''
+    if (!res.classname) {
+      saveScrapperLiClass(DEFAULT_SCRAPPER_CLASSNAME);
+      scrapperClassname = DEFAULT_SCRAPPER_CLASSNAME;
+    } else {
+      scrapperClassname = res.classname
+    }
+    document.getElementById("classnameInput").value = scrapperClassname;
+    return scrapperClassname;
+  })
+}
+
+getProperClassname();
 
 async function populateTableWithCategories() {
   loadCategories().then((res) => {

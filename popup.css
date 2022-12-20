@@ -80,7 +80,7 @@ button {
     width: 250px;
 }
 
-.addCategory {
+.simpleForm {
     width: 250px;
     display: flex;
     justify-content: space-between;
