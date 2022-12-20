@@ -36,7 +36,24 @@ async function populateTableWithCategories() {
         deleteCategory(category.id);
       };
       cell2.appendChild(btn);
+    });
+
+    const categoriesList = document.getElementById('category');
+    categoriesList.innerHTML = '';
+    const nullOption = document.createElement("option");
+    nullOption.value = 'null';
+    nullOption.innerHTML = '';
+    const ignoreOption = document.createElement("option");
+    nullOption.value = 'IGNORE';
+    nullOption.innerHTML = 'IGNORE';
+    categoriesList.appendChild(nullOption);
+    res.categories.forEach((category) => {
+      const option = document.createElement("option");
+      option.value = category.category;
+      option.innerHTML = category.category;
+      categoriesList.appendChild(option);
     })
+    categoriesList.appendChild(ignoreOption)
   });
 }
 
