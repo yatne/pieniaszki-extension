@@ -4,8 +4,8 @@ async function scrapMData() {
 
   return chrome.scripting.executeScript({
     target: { tabId: tab.id },
-    func: () => {
-      const rows = Array.from(document.getElementsByClassName('ds__sc-g10vlq-0 dEwyXg')).map(
+    func: (className) => {
+      const rows = Array.from(document.getElementsByClassName(className)).map(
         function(extRow) {return extRow.children[0];}
       );
       const values = [];
