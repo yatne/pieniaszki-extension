@@ -1,7 +1,7 @@
 document.getElementById("newRuleForm").addEventListener("submit", async (e) => {
   e.preventDefault();
   loadRules().then((res) => {
-    const {ruleSet} = res;
+    const ruleSet = res.ruleSet ? res.ruleSet : [];
     const maxId = Math.max(...ruleSet.map(rule => rule.id), 0);
     ruleSet.push({
       id: maxId + 1,

@@ -48,21 +48,18 @@ button {
     margin-right: 8px;
 }
 
-.rulesContainer {
+.sectionContainer {
     width: auto;
     border: 1px solid #8f8f8f;
     padding: 0 12px;
+    margin: 5px 0;
 }
 
-.rulesHeader {
+.sectionHeader {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.rulesToggleButton {
-    background-color: green;
 }
 
 .hidden {
@@ -75,6 +72,19 @@ button {
 }
 
 .removeRuleButton {
-    height: 15px;
+    height: 23px;
     margin: 0;
+}
+
+#categoriesTable {
+    width: 250px;
+}
+
+.addCategory {
+    width: 250px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    max-width: 250px;
 }

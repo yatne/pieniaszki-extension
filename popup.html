@@ -10,8 +10,8 @@
     <body>
         <button id="generateCSVButton"> Generate CSV </button>
 
-        <div class="rulesContainer">
-            <div class="rulesHeader">
+        <div class="sectionContainer">
+            <div class="sectionHeader">
                 <h2>Rules: </h2>
                 <button id="rulesToggleButton">Open</button>
             </div>
@@ -92,6 +92,23 @@
                     <button id="rulesImport">Import rules</button>
                     <input id='hiddenFileInput' type='file' hidden/>
                 </div>
+            </div>
+        </div>
+        <div class="sectionContainer">
+            <div class="sectionHeader">
+                <h2>Options: </h2>
+                <button id="optionsToggleButton">Open</button>
+            </div>
+            <div class="optionsContent hidden">
+                <h3>Categories:</h3>
+                <table id="categoriesTable">
+                    <tr><td>Zakupy małe</td></tr>
+                    <tr><td>Zakupy duże</td></tr>
+                </table>
+                <form class="addCategory">
+                    <input id="categoryInput" />
+                    <button id="addCategory"> Add </button>
+                </form>
             </div>
         </div>
 
