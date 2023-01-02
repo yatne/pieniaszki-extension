@@ -4,30 +4,32 @@ async function scrapMData() {
 
   return chrome.scripting.executeScript({
     target: { tabId: tab.id },
-    func: (className) => {
-      const rows = Array.from(document.getElementsByClassName(className)).map(
-        function(extRow) {return extRow.children[0];}
-      );
-      const values = [];
-      rows.forEach(row => {
-        if (!row.children[5].children[0].classList.contains('gBNa-dk')) {
-          const value = row.children[5].children[0].children[0].innerText;
-          const mDesc = row.children[2].children[0].children[1].innerText;
-          if (value.includes('-')) {
-            values.push({
-              date: row.children[1].children[0].children[0].children[0].textContent,
-              value: value,
-              desc: mDesc,
-            });
-          }
-        }
-      });
-      return values;
-    },
+    func: scrapData,
     args: [className]
   }).then((res) => {
     return res[0].result;
   });
+}
+
+const scrapData = (className) => {
+  const rows = Array.from(document.getElementsByClassName(className)).map(
+    function(extRow) {return extRow.children[0];}
+  );
+  const values = [];
+  rows.forEach(row => {
+    if (!row.children[5].children[0].classList.contains('gBNa-dk')) {
+      const value = row.children[5].children[0].children[0].innerText;
+      const mDesc = row.children[2].children[0].children[1].innerText;
+      if (value.includes('-')) {
+        values.push({
+          date: row.children[1].children[0].children[0].children[0].textContent,
+          value: value,
+          desc: mDesc,
+        });
+      }
+    }
+  });
+  return values;
 }
 
 function transformMData(mData) {
