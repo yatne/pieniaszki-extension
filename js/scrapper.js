@@ -13,7 +13,7 @@ async function scrapMData() {
 
 const scrapData = (className) => {
   const rows = Array.from(document.getElementsByClassName(className)).map(
-    function(extRow) {return extRow.children[0];}
+    function(extRow) {return extRow}
   );
   const values = [];
   rows.forEach(row => {
@@ -22,7 +22,7 @@ const scrapData = (className) => {
       const mDesc = row.children[2].children[0].children[1].innerText;
       if (value.includes('-')) {
         values.push({
-          date: row.children[1].children[0].children[0].children[0].textContent,
+          date: row.children[1].children[0].children[0].textContent,
           value: value,
           desc: mDesc,
         });
