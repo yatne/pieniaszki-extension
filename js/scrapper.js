@@ -13,7 +13,7 @@ async function scrapMData() {
 
 const scrapData = (className) => {
   const rows = Array.from(document.getElementsByClassName(className)).map(
-    function(extRow) {return extRow}
+    function(extRow) {return extRow.children[0]}
   );
   const values = [];
   rows.forEach(row => {
